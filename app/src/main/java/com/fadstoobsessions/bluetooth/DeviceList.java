@@ -56,6 +56,10 @@ public class DeviceList extends ActionBarActivity
                 Intent turnBTon = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
                 startActivityForResult(turnBTon,1);
         }
+        else if(myBluetooth.isEnabled())
+        {
+            pairedDevicesList();
+        }
 
         btnPaired.setOnClickListener(new View.OnClickListener() {
             @Override

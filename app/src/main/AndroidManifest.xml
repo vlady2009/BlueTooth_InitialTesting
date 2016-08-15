@@ -27,7 +27,8 @@
 
         <activity
             android:name="com.fadstoobsessions.bluetooth.ledControl"
-            android:label="LED Control">
+            android:label="LED Control"
+            android:windowSoftInputMode="stateHidden">
 
         </activity>
 
