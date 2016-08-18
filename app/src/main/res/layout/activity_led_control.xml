@@ -12,23 +12,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bluetooth uP Controller"
-        android:id="@+id/textView_ActivityLabel"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textColor="#ffffff"
-        android:textSize="20dp"
-        android:paddingBottom="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Message to Send:"
         android:id="@+id/textView_MessageSendLabel"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="false"
-        android:layout_below="@+id/textView_ActivityLabel" />
+        android:layout_below="@+id/button_Disconnect"
+        android:layout_marginTop="5dp" />
 
     <EditText
         android:id="@+id/editText_SendMessage"
@@ -39,68 +28,27 @@
         android:inputType="text"
         android:background="@color/background_floating_material_light"
         android:textColor="@color/abc_input_method_navigation_guard"
-        android:layout_below="@+id/textView_MessageSendLabel" />
+        android:layout_below="@+id/textView_MessageSendLabel"
+        android:layout_toStartOf="@+id/button_SendMessage" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send"
         android:id="@+id/button_SendMessage"
-        android:layout_below="@+id/editText_SendMessage"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/on"
-        android:background="@null"
-        android:src="@drawable/on"
-        android:layout_marginBottom="20dp"
-        android:layout_above="@+id/off"
-        android:layout_centerHorizontal="true"
-        android:paddingTop="10dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/off"
-        android:src="@drawable/red"
-        android:background="@null"
-        android:layout_above="@+id/discnt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/discnt"
-        android:src="@drawable/disconnect"
-        android:background="@null"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/abt"
-        android:background="@null"
-        android:onClick="about"
-        android:src="@drawable/about"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/textView_MessageSendLabel"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-15dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Received Message&apos;s"
         android:id="@+id/textView_MessageRecLabel"
-        android:layout_below="@+id/button_SendMessage"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:paddingTop="20dp" />
+        android:paddingTop="5dp"
+        android:layout_below="@+id/button_SendMessage" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -108,8 +56,8 @@
         android:id="@+id/scrollView_MessageRec"
         android:layout_below="@+id/textView_MessageRecLabel"
         android:layout_alignParentEnd="false"
-        android:layout_above="@+id/on"
-        android:background="@color/background_floating_material_light">
+        android:background="@color/background_floating_material_light"
+        android:minHeight="70dp">
         <TextView
             android:id="@+id/textView_ReceivedMessage"
             android:layout_width="fill_parent"
@@ -119,5 +67,130 @@
             android:text="@string/long_test_string"
             android:textColor="@color/abc_input_method_navigation_guard" />
     </ScrollView>
+
+    <SeekBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/simpleSeekBar"
+        android:layout_below="@+id/scrollView_MessageRec"
+        android:layout_marginTop="38dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_toRightOf="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView_simpleSeekBar" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="0"
+        android:id="@+id/textView_simpleSeekBar"
+        android:minWidth="30dp"
+        android:layout_alignTop="@+id/simpleSeekBar"
+        android:layout_alignEnd="@+id/scrollView_MessageRec"
+        android:layout_alignBottom="@+id/simpleSeekBar"
+        android:gravity="center_vertical" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/toggleButton_LEDyellow"
+        android:textOff="LED Off"
+        android:textOn=" LED On"
+        android:enabled="true"
+        android:textColor="#fefe00"
+        android:layout_alignTop="@+id/switch_LEDred"
+        android:layout_alignEnd="@+id/textView_simpleSeekBar" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Red LED"
+        android:id="@+id/switch_LEDred"
+        android:checked="false"
+        android:layout_below="@+id/scrollView_MessageRec"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="76dp"
+        android:layout_alignEnd="@+id/switch_LEDgreen"
+        android:textAlignment="gravity"
+        android:gravity="right" />
+
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Green LED"
+        android:id="@+id/switch_LEDgreen"
+        android:checked="false"
+        android:layout_below="@+id/switch_LEDred"
+        android:splitTrack="false"
+        android:textAlignment="gravity"
+        android:gravity="right" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Disconnect"
+        android:id="@+id/button_Disconnect"
+        android:longClickable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Speed"
+        android:id="@+id/textView2"
+        android:gravity="center"
+        android:textAlignment="gravity"
+        android:layout_below="@+id/scrollView_MessageRec"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="BlueTooth\nuP Controller"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/textView_MessageSendLabel"
+        android:layout_alignEnd="@+id/button_SendMessage"
+        android:layout_toEndOf="@+id/button_Disconnect"
+        android:textAlignment="gravity"
+        android:gravity="center_vertical"
+        android:textSize="20dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receive Strings"
+        android:id="@+id/checkBox_RecText"
+        android:layout_below="@+id/scrollView_MessageRec"
+        android:layout_alignParentStart="true"
+        android:checked="true" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Receive Bytes"
+        android:id="@+id/checkBox_RecBytes"
+        android:layout_alignTop="@+id/checkBox_RecText"
+        android:layout_alignEnd="@+id/textView_simpleSeekBar" />
+
+    <com.jjoe64.graphview.GraphView
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:id="@+id/graph"
+        android:layout_alignParentBottom="true"
+        android:layout_alignEnd="@+id/textView_simpleSeekBar"
+        android:background="#030303" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test Debug"
+        android:id="@+id/buttonTEST"
+        android:layout_below="@+id/editText_SendMessage"
+        android:layout_toEndOf="@+id/checkBox_RecText" />
 
 </RelativeLayout>
